@@ -1,0 +1,56 @@
+h1{
+    font-size: 2rem;
+    color: aquamarine;
+}
+h1:hover{
+    color: #ffff;
+    text-align: center;
+}
+hr{
+    border-color: aqua;
+}
+label:hover{
+    color: aquamarine;
+    transform: scale(1.1);
+}
+.lengthOP{
+    width: 270px;
+    background:aqua;
+    color: #000;
+}
+.form-container{
+    margin-top: -0.8rem;
+    
+} textarea{
+    border-color: aqua;
+    background: transparent;
+}
+textarea:active{
+    border-color: aqua;
+}
+@media only  screen and (max-width: 191px) {
+   
+    textarea{
+max-width: 350px;
+    }
+    .text-shower{
+        padding: 0 2.2rem;
+    }
+}
+@media only  screen and (max-width: 786px) {
+    .bkl{
+        gap: 1rem;
+        justify-content: space-around;
+        margin: 0 1.6rem;
+        
+    }
+    textarea{
+max-width: 350px;
+    }
+    .text-shower{
+        padding: 0 2.2rem;
+    }
+    .btun{
+        padding: 0 5rem;
+     }
+}

@@ -8,6 +8,8 @@ function passwordGenerator() {
     
 
     let pLength = parseInt(document.getElementById("passwordlength").value);
+   
+
     let pUpper = document.getElementById("upppercase");
     let pLower = document.getElementById("lowercase");
     let pNumber = document.getElementById("number");
@@ -15,6 +17,7 @@ function passwordGenerator() {
     let pQuantity = parseInt(document.getElementById("Quantity").value);
     let pShower = document.getElementById("passcodeShower");
 
+ 
     if (pNumber.checked && pLower.checked && pUpper.checked &&pSymbols.checked) {
    if(pQuantity>0 && pQuantity<=5){
 
@@ -32,8 +35,89 @@ function passwordGenerator() {
 
 
         pShower.value = password; 
+    }else{
+        alert(`Enter quantity between 0-5`)
+    }
+
+
+}
+else if ((pNumber.checked && pLower.checked && pUpper.checked)) 
+
+{
+let combine=numbers+lowerCase+upperCase;
+if(pQuantity>0 && pQuantity<=5){
+
+    for (let i = 0; i < pQuantity; i++) {
+        let newPassword = "";
+        for (let j = 0; j < pLength; j++) {
+            let random = Math.floor(Math.random() * combine.length);
+            newPassword += combine[random];
+        }
+        password += newPassword + "\n";
+    }
+
+    pShower.value = password;
+}}
+
+else if ((pNumber.checked && pLower.checked&&pSymbols)) {
+let combine=numbers+lowerCase+specialChar;
+if(pQuantity>0 && pQuantity<=5){
+
+    for (let i = 0; i < pQuantity; i++) {
+        let newPassword = "";
+        for (let j = 0; j < pLength; j++) {
+            let random = Math.floor(Math.random() * combine.length);
+            newPassword += combine[random];
+        }
+        password += newPassword + "\n";
+    }
+
+    pShower.value = password;
+}
+else{
+    alert(`Enter quantity between 0-5`)
+}
+
+}
+else if(pLower.checked&&pUpper.checked&&pSymbols.checked){
+    let combine=lowerCase+upperCase+Symbol;
+    if(pQuantity>0 && pQuantity<=5){
+
+        for (let i = 0; i < pQuantity; i++) {
+            let newPassword = "";
+            for (let j = 0; j < pLength; j++) {
+                let random = Math.floor(Math.random() * combine.length);
+                newPassword += combine[random];
+            }
+            password += newPassword + "\n";
+        }
+    
+        pShower.value = password;
+    }else{
+        alert(`Enter quantity between 0-5`)
+    }
+
+
+}
+else if(pNumber.checked&&pUpper.checked&&pSymbols.checked){
+    let combine=numbers+upperCase+specialChar;
+    if(pQuantity>0 && pQuantity<=5){
+
+        for (let i = 0; i < pQuantity; i++) {
+            let newPassword = "";
+            for (let j = 0; j < pLength; j++) {
+                let random = Math.floor(Math.random() * combine.length);
+                newPassword += combine[random];
+            }
+            password += newPassword + "\n";
+        }
+    
+        pShower.value = password;
+    }else{
+        alert(`Enter quantity between 0-5`)
     }
 }
+
  else   if ( pUpper.checked) {
    if(pQuantity>0 && pQuantity<=5){
 
@@ -51,6 +135,8 @@ function passwordGenerator() {
 
 
         pShower.value = password; 
+    }else{
+        alert(`Enter quantity between 0-5`)
     }
 
 }
@@ -72,7 +158,10 @@ function passwordGenerator() {
 
 
         pShower.value = password;
+    }else{
+        alert(`Enter quantity between 0-5`)
     }
+
 
 }
  else   if ( pNumber.checked) {
@@ -93,6 +182,9 @@ function passwordGenerator() {
 
 
         pShower.value = password;
+    }
+    else{
+        alert(`Enter quantity between 0-5`)
     }
 
 
@@ -117,31 +209,12 @@ function passwordGenerator() {
         pShower.value = password;
     }
 
+    else{
+        alert(`Enter quantity between 0-5`)
+    }
 
 
 }
-else   if ( pLower.checked&&pUpper.checked) {
-
-    if(pQuantity>0 && pQuantity<=5){
- 
-     for (let i = 0; i < pQuantity; i++) {
-         let newPassword = "";
-         for (let j = 0; j < pLength; j++) {
-            let combine=lowerCase+upperCase
-             let random = Math.floor(Math.random() *(combine.length));
-             newPassword += combine[random];
-         }
-         password += newPassword + "\n";
-     }
- 
- 
- 
- 
- 
-         pShower.value = password;
-     }
- 
- }
 
 }
 function lengthQuantity(event) {
@@ -151,4 +224,9 @@ function lengthQuantity(event) {
             alert("Please enter a number between 0 and 5");
         }
     }
+}
+function showValue(){
+    let pLength = parseInt(document.getElementById("passwordlength").value);
+    let l=document.getElementById("valueoflength")
+   l.innerHTML=pLength
 }
